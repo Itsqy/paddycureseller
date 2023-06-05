@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    tools:context=".ui.register.RegisterFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/img_eclipse_top"
+            android:layout_width="391.7dp"
+            android:layout_height="250.75dp"
+            android:layout_marginTop="-120dp"
+            android:layout_marginEnd="-100dp"
+            android:alpha="0.08"
+            android:contentDescription="eclipse"
+            android:rotation="11.14"
+            android:src="@drawable/eclipse"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/img_eclipse_top1"
+            android:layout_width="391.7dp"
+            android:layout_height="250.75dp"
+            android:layout_marginStart="-100dp"
+            android:layout_marginBottom="-100dp"
+            android:alpha="0.08"
+            android:contentDescription="eclipse"
+            android:rotation="34"
+            android:src="@drawable/eclipse"
+            app:layout_constraintBottom_toBottomOf="parent"
+
+            app:layout_constraintHorizontal_bias="0.873"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/img_eclipse_top2"
+            android:layout_width="391.7dp"
+            android:layout_height="250.75dp"
+            android:layout_marginEnd="-250dp"
+            android:alpha="0.08"
+
+            android:contentDescription="eclipse"
+            android:rotation="11.14"
+            android:src="@drawable/eclipse"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_welcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Let's Join With SawahKu"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="28sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/img_cardview"
+            android:layout_width="329dp"
+            android:layout_height="400dp"
+            android:layout_marginTop="200dp"
+            android:background="@drawable/cardview_login"
+            android:contentDescription="cardview"
+            android:padding="10dp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="238dp"
+            android:elevation="25dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Register"
+            android:textColor="@color/primaryColor"
+            android:textSize="28sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/edt_username"
+            android:layout_width="259dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/border_corner"
+            android:elevation="30dp"
+            android:fontFamily="@font/poppins_medium"
+            android:hint="username"
+            android:paddingHorizontal="35dp"
+            android:textColorHint="@color/primaryColor"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="@id/tv_register"
+            app:layout_constraintStart_toStartOf="@id/tv_register"
+            app:layout_constraintTop_toBottomOf="@id/tv_register" />
+
+        <com.darkcoder.paddycure.ui.customview.MyEditTextEmail
+            android:id="@+id/edt_email_register"
+            android:layout_width="259dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/border_corner"
+            android:elevation="30dp"
+            android:hint="email"
+            android:paddingHorizontal="35dp"
+            android:textColorHint="@color/primaryColor"
+            app:layout_constraintEnd_toEndOf="@id/edt_username"
+            app:layout_constraintStart_toStartOf="@id/edt_username"
+            app:layout_constraintTop_toBottomOf="@id/edt_username" />
+
+        <com.darkcoder.paddycure.ui.customview.MyEditTextPassword
+            android:id="@+id/edt_pass_register"
+            android:layout_width="259dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/border_corner"
+            android:elevation="30dp"
+            android:hint="password"
+            android:paddingHorizontal="35dp"
+            android:textColorHint="@color/primaryColor"
+            app:layout_constraintEnd_toEndOf="@id/edt_email_register"
+            app:layout_constraintStart_toStartOf="@id/edt_email_register"
+            app:layout_constraintTop_toBottomOf="@id/edt_email_register" />
+
+        <com.darkcoder.paddycure.ui.customview.MyButtonRegister
+            android:id="@+id/btn_register"
+            android:layout_width="259dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/border_corner"
+            android:elevation="10dp"
+            android:fontFamily="@font/poppins_medium"
+            android:hint="email"
+            android:paddingHorizontal="35dp"
+            android:textColorHint="@color/primaryColor"
+            app:layout_constraintEnd_toEndOf="@id/edt_pass_register"
+            app:layout_constraintStart_toStartOf="@id/edt_pass_register"
+            app:layout_constraintTop_toBottomOf="@id/edt_pass_register" />
+
+        <TextView
+            android:id="@+id/tv_alreadyhaveacc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="66dp"
+            android:fontFamily="@font/poppins_reguler"
+            android:text="Already have an account?"
+            android:textColor="@color/white"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="@id/btn_register"
+            app:layout_constraintStart_toStartOf="@id/btn_register"
+            app:layout_constraintTop_toBottomOf="@id/btn_register" />
+
+        <TextView
+            android:id="@+id/tv_to_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/poppins_mediumitalic"
+            android:text="@string/to_login"
+            android:textColor="@color/primaryColor"
+            app:layout_constraintStart_toEndOf="@id/tv_alreadyhaveacc"
+            app:layout_constraintTop_toTopOf="@id/tv_alreadyhaveacc" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
