@@ -1,4 +1,4 @@
-package com.darkcoder.paddycure.ui.customview
+package com.darkcoder.paddycureseller.ui.customview
 
 import android.content.Context
 import android.graphics.Canvas
@@ -11,8 +11,7 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
 import androidx.core.content.ContextCompat
-
-import com.darkcoder.paddycure.R
+import com.darkcoder.paddycureseller.R
 import com.google.android.material.textfield.TextInputEditText
 
 class MyEditTextPassword : TextInputEditText, View.OnTouchListener {

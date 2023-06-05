@@ -13,14 +13,13 @@
 
         <ImageView
             android:id="@+id/img_eclipse_top"
-            android:layout_width="391.7dp"
-            android:layout_height="250.75dp"
-            android:layout_marginTop="-120dp"
-            android:layout_marginEnd="-100dp"
-            android:alpha="0.08"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+
             android:contentDescription="eclipse"
-            android:rotation="11.14"
-            android:src="@drawable/eclipse"
+            android:scaleType="fitXY"
+
+            android:src="@drawable/background_register"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -70,7 +69,7 @@
             android:id="@+id/img_cardview"
             android:layout_width="329dp"
             android:layout_height="400dp"
-            android:layout_marginTop="200dp"
+            android:layout_marginTop="100dp"
             android:background="@drawable/cardview_login"
             android:contentDescription="cardview"
             android:padding="10dp"
@@ -83,7 +82,7 @@
             android:id="@+id/tv_register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="238dp"
+            android:layout_marginTop="20dp"
             android:elevation="25dp"
             android:fontFamily="@font/poppins_semibold"
             android:text="Register"
@@ -91,7 +90,7 @@
             android:textSize="28sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@id/img_cardview" />
 
         <EditText
             android:id="@+id/edt_username"
@@ -109,7 +108,7 @@
             app:layout_constraintStart_toStartOf="@id/tv_register"
             app:layout_constraintTop_toBottomOf="@id/tv_register" />
 
-        <com.darkcoder.paddycure.ui.customview.MyEditTextEmail
+        <com.darkcoder.paddycureseller.ui.customview.MyEditTextEmail
             android:id="@+id/edt_email_register"
             android:layout_width="259dp"
             android:layout_height="50dp"
@@ -123,7 +122,7 @@
             app:layout_constraintStart_toStartOf="@id/edt_username"
             app:layout_constraintTop_toBottomOf="@id/edt_username" />
 
-        <com.darkcoder.paddycure.ui.customview.MyEditTextPassword
+        <com.darkcoder.paddycureseller.ui.customview.MyEditTextPassword
             android:id="@+id/edt_pass_register"
             android:layout_width="259dp"
             android:layout_height="50dp"
@@ -137,7 +136,7 @@
             app:layout_constraintStart_toStartOf="@id/edt_email_register"
             app:layout_constraintTop_toBottomOf="@id/edt_email_register" />
 
-        <com.darkcoder.paddycure.ui.customview.MyButtonRegister
+        <com.darkcoder.paddycureseller.ui.customview.MyButtonRegister
             android:id="@+id/btn_register"
             android:layout_width="259dp"
             android:layout_height="50dp"
