@@ -1,4 +1,4 @@
-package com.darkcoder.paddycure.ui.customview
+package com.darkcoder.paddycureseller.ui.customview
 
 import android.content.Context
 import android.graphics.Canvas
@@ -7,7 +7,7 @@ import android.util.AttributeSet
 import android.view.Gravity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.content.ContextCompat
-import com.darkcoder.paddycure.R
+import com.darkcoder.paddycureseller.R
 
 
 class MyButtonLogin : AppCompatButton {

@@ -93,7 +93,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.darkcoder.paddycure.ui.customview.MyEditTextEmail
+        <com.darkcoder.paddycureseller.ui.customview.MyEditTextEmail
             android:id="@+id/edt_email_login"
             android:layout_width="259dp"
             android:layout_height="55dp"
@@ -107,7 +107,7 @@
             app:layout_constraintStart_toStartOf="@id/tv_login"
             app:layout_constraintTop_toBottomOf="@id/tv_login" />
 
-        <com.darkcoder.paddycure.ui.customview.MyEditTextPassword
+        <com.darkcoder.paddycureseller.ui.customview.MyEditTextPassword
             android:id="@+id/edt_pass_login"
             android:layout_width="259dp"
             android:layout_height="55dp"
@@ -135,7 +135,7 @@
             app:layout_constraintStart_toStartOf="@id/edt_pass_login"
             app:layout_constraintTop_toBottomOf="@id/edt_pass_login" />
 
-        <com.darkcoder.paddycure.ui.customview.MyButtonLogin
+        <com.darkcoder.paddycureseller.ui.customview.MyButtonLogin
             android:id="@+id/btn_login"
             android:layout_width="259dp"
             android:layout_height="50dp"
