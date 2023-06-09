@@ -6,4 +6,11 @@
     <color name="secColor">#81B622</color>
     <color name="thirdColor">#D8E84D</color>
     <color name="greyColor">#9C9999</color>
+
+    <color name="grey200">#F4F4F4</color>
+    <color name="grey400">#5C5C5C</color>
+    <color name="grey700">#464646</color>
+
+    <color name="green900">#344B06</color>
+    <color name="green100">#E8F2D7</color>
 </resources>
