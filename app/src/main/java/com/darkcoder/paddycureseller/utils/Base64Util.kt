@@ -1,9 +1,9 @@
 package com.darkcoder.paddycure.utils
 
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import com.loopj.android.http.Base64
-import java.io.ByteArrayOutputStream
+//import android.graphics.Bitmap
+//import android.graphics.BitmapFactory
+//import com.loopj.android.http.Base64
+//import java.io.ByteArrayOutputStream
 
 //object Base64Util {
 //    private const val IMG_WIDTH = 640

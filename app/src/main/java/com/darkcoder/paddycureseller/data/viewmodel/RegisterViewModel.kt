@@ -27,7 +27,7 @@ class RegisterViewModel() : ViewModel() {
 
         _isLoading.value = true
 
-        ApiConfig.getServiceNews().register(name, userame, passWord)
+        ApiConfig.getApiService().register(name, userame, passWord)
             .enqueue(object : Callback<RegisterResponse> {
                 override fun onResponse(
                     call: Call<RegisterResponse>,
