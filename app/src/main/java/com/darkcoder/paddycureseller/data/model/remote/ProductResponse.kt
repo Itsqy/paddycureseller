@@ -4,14 +4,26 @@ import com.google.gson.annotations.SerializedName
 
 data class ProductResponse(
 
-	@field:SerializedName("id_produk")
-	val idProduk: String,
+	@field:SerializedName("result")
+	val result: Boolean,
+
+	@field:SerializedName("keterangan")
+	val keterangan: String,
+
+	@field:SerializedName("data")
+	val data: List<DataItem>
+)
+
+data class DataItem(
+
+	@field:SerializedName("nama_produk")
+	val namaProduk: String,
 
 	@field:SerializedName("harga_produk")
 	val hargaProduk: Int,
 
 	@field:SerializedName("user_id")
-	val userId: Int,
+	val userId: String,
 
 	@field:SerializedName("detail_produk")
 	val detailProduk: String,
@@ -23,8 +35,5 @@ data class ProductResponse(
 	val id: String,
 
 	@field:SerializedName("img_produk")
-	val imgProduk: String,
-
-	@field:SerializedName("timestamp")
-	val timestamp: String
+	val imgProduk: String
 )

@@ -38,7 +38,7 @@ class LoginViewModel(val sharedPref: UserPreferences) : ViewModel() {
         val jsonObjectString = jsonObject.toString()
 
         val requestBody = jsonObjectString.toRequestBody("application/json".toMediaTypeOrNull())
-        ApiConfig.getServiceNews().login(requestBody).enqueue(object : Callback<LoginResponse> {
+        ApiConfig.getApiService().login(requestBody).enqueue(object : Callback<LoginResponse> {
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
 
                 val result = response.body()?.result
