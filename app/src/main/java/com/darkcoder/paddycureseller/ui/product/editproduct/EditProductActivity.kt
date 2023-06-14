@@ -1,28 +1,30 @@
-package com.darkcoder.paddycureseller.ui.product.addproduct
+package com.darkcoder.paddycureseller.ui.product.editproduct
 
 import android.content.Intent
-import android.content.Intent.ACTION_GET_CONTENT
 import android.content.pm.PackageManager
 import android.graphics.BitmapFactory
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
+import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
+import com.bumptech.glide.Glide
 import com.darkcoder.paddycure.data.network.ApiConfig
 import com.darkcoder.paddycure.utils.ViewModelFactory
 import com.darkcoder.paddycure.utils.createCustomTempFile
 import com.darkcoder.paddycure.utils.reduceFileImage
 import com.darkcoder.paddycure.utils.uriToFile
 import com.darkcoder.paddycureseller.MainActivity
-import com.darkcoder.paddycureseller.data.viewmodel.AddProductViewModel
-import com.darkcoder.paddycureseller.databinding.ActivityAddProductBinding
+import com.darkcoder.paddycureseller.data.model.remote.DataItem
+import com.darkcoder.paddycureseller.data.viewmodel.EditProductViewModel
+import com.darkcoder.paddycureseller.databinding.ActivityEditProductBinding
 import com.darkcoder.paddycureseller.ui.login.dataStore
 import com.darkcoder.paddycureseller.utils.UserPreferences
 import okhttp3.MediaType.Companion.toMediaType
@@ -31,9 +33,10 @@ import okhttp3.RequestBody.Companion.asRequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
 import java.io.File
 
-class AddProductActivity : AppCompatActivity() {
+class EditProductActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityAddProductBinding
+    private lateinit var binding: ActivityEditProductBinding
+
     private var getFile: File? = null
     private lateinit var currentPhotoPath: String
     private lateinit var edNamaProduk: EditText
@@ -41,39 +44,66 @@ class AddProductActivity : AppCompatActivity() {
     private lateinit var edDeskripsiProduk: EditText
     private lateinit var edStokProduk: EditText
 
-    private val addProductViewModel: AddProductViewModel by viewModels {
+    private val editProductViewModel: EditProductViewModel by viewModels {
         ViewModelFactory(UserPreferences.getInstance(this.dataStore), ApiConfig)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        binding = ActivityAddProductBinding.inflate(layoutInflater)
+        binding = ActivityEditProductBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val id = intent.getStringExtra("id").toString()
+
+        supportActionBar?.hide()
+
+        editProductViewModel.isLoading.observe(this) {
+            showLoading(it)
+        }
+
+        editProductViewModel.getProduct(id)
+        editProductViewModel.productDetails.observe(this) {
+            setProductDetails(it)
+        }
 
         if (!allPermissionsGranted()) {
             ActivityCompat.requestPermissions(
                 this,
-                REQUIRED_PERMISSIONS,
-                REQUEST_CODE_PERMISSIONS
+                EditProductActivity.REQUIRED_PERMISSIONS,
+                EditProductActivity.REQUEST_CODE_PERMISSIONS
             )
         }
 
-        edNamaProduk = binding.edProductName
-        edDeskripsiProduk = binding.edProductDesc
-        edHargaProduk = binding.edProductCost
-        edStokProduk = binding.edProductStock
+        edNamaProduk = binding.edProductNameEdit
+        edDeskripsiProduk = binding.edProductDescEdit
+        edHargaProduk = binding.edProductCostEdit
+        edStokProduk = binding.edProductStockEdit
 
-        binding.btnGallery.setOnClickListener { startGallery() }
-        binding.btnCamera.setOnClickListener { startCamera() }
-        binding.btnAddProduct.setOnClickListener { addProduct() }
+        binding.btnGalleryEdit.setOnClickListener { startGallery() }
+        binding.btnCameraEdit.setOnClickListener { startCamera() }
+        binding.btnSaveProduct.setOnClickListener { saveProduct(id) }
 
-        binding.ivBackForm.setOnClickListener {
+        binding.ivBackEdit.setOnClickListener {
             super.onBackPressed()
         }
     }
 
-    private fun addProduct() {
+    private fun showLoading(isLoading: Boolean) {
+        binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
+    }
+
+    private fun setProductDetails(data: DataItem?) {
+        Glide.with(this)
+            .load(data?.imgProduk)
+            .into(binding.ivPreviewEdit)
+
+        binding.edProductNameEdit.setText(data?.namaProduk)
+        binding.edProductStockEdit.setText(data?.stokProduk.toString())
+        binding.edProductDescEdit.setText(data?.detailProduk)
+        binding.edProductCostEdit.setText(data?.hargaProduk.toString())
+    }
+
+    private fun saveProduct(id: String) {
         if (getFile != null) {
             val file = reduceFileImage(getFile as File)
 
@@ -87,20 +117,26 @@ class AddProductActivity : AppCompatActivity() {
                 file.name,
                 requestImageFile
             )
-            addProductViewModel.postProduct(
+            editProductViewModel.editProduct(
+                id,
                 imageMultipart,
                 title,
                 cost,
                 description,
                 stock
             )
-            addProductViewModel.addProductResponse.observe(this) {
-                Toast.makeText(this@AddProductActivity, "Berhasil diunggah!", Toast.LENGTH_SHORT).show()
-                startActivity(Intent(this@AddProductActivity, MainActivity::class.java))
-                finish()
+            editProductViewModel.editProductResponse.observe(this) {
+                if (it.result) {
+                    Toast.makeText(this@EditProductActivity, "Berhasil diubah!", Toast.LENGTH_SHORT).show()
+                    val i = Intent(this@EditProductActivity, MainActivity::class.java)
+                    i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                    i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    startActivity(i)
+                    finish()
+                }
             }
         } else {
-            Toast.makeText(this@AddProductActivity, "Silakan masukkan berkas gambar terlebih dahulu.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@EditProductActivity, "Silakan masukkan berkas gambar terlebih dahulu.", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -110,7 +146,7 @@ class AddProductActivity : AppCompatActivity() {
 
         createCustomTempFile(application).also {
             val photoURI: Uri = FileProvider.getUriForFile(
-                this@AddProductActivity,
+                this@EditProductActivity,
                 "com.darkcoder.paddycureseller",
                 it
             )
@@ -122,7 +158,7 @@ class AddProductActivity : AppCompatActivity() {
 
     private fun startGallery() {
         val intent = Intent()
-        intent.action = ACTION_GET_CONTENT
+        intent.action = Intent.ACTION_GET_CONTENT
         intent.type = "image/*"
         val chooser = Intent.createChooser(intent, "Silakan pilih gambar Anda")
         launcherIntentGallery.launch(chooser)
@@ -138,7 +174,7 @@ class AddProductActivity : AppCompatActivity() {
             myFile.let { file ->
 //                rotateFile(file)
                 getFile = file
-                binding.ivPreview.setImageBitmap(BitmapFactory.decodeFile(file.path))
+                binding.ivPreviewEdit.setImageBitmap(BitmapFactory.decodeFile(file.path))
             }
         }
     }
@@ -150,9 +186,9 @@ class AddProductActivity : AppCompatActivity() {
         if (result.resultCode == RESULT_OK) {
             val selectedImg = result.data?.data as Uri
             selectedImg.let { uri ->
-                val myFile = uriToFile(uri, this@AddProductActivity)
+                val myFile = uriToFile(uri, this@EditProductActivity)
                 getFile = myFile
-                binding.ivPreview.setImageURI(uri)
+                binding.ivPreviewEdit.setImageURI(uri)
             }
         }
     }

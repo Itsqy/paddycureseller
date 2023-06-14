@@ -18,7 +18,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class LoginViewModel(val sharedPref: UserPreferences) : ViewModel() {
+class LoginViewModel(val sharedPref: UserPreferences, private val apiConfig: ApiConfig) : ViewModel() {
 
     private val _message = MutableLiveData<String>()
     val showMessage: LiveData<String> = _message
@@ -52,6 +52,7 @@ class LoginViewModel(val sharedPref: UserPreferences) : ViewModel() {
                         _isLoading.value = false
                         _result.value = response.body()?.result
                         _message.value = user?.username
+                        apiConfig.setUserToken(response.body()?.token.toString())
                         val dataUser = body?.let {
                             UserModel(
                                 user?.username.toString(),

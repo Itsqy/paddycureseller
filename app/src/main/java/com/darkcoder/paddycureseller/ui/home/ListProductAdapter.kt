@@ -35,7 +35,6 @@ class ListProductAdapter(private val listProduct: List<DataItem>) : RecyclerView
         holder.tvCost.text = item.hargaProduk.toString()
 
         holder.itemView.setOnClickListener {
-            Log.e("ID:", item.id)
             val intent = Intent(holder.itemView.context, ProductDetailsActivity::class.java)
             intent.putExtra("id", item.id)
 
