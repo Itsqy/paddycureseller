@@ -9,6 +9,7 @@ import androidx.activity.viewModels
 import androidx.core.content.ContentProviderCompat.requireContext
 import com.bumptech.glide.Glide
 import com.darkcoder.paddycureseller.MainActivity
+import androidx.appcompat.app.AppCompatDelegate
 import com.darkcoder.paddycureseller.R
 import com.darkcoder.paddycureseller.data.model.remote.DataItem
 import com.darkcoder.paddycureseller.data.viewmodel.ProductDetailsViewModel
@@ -26,6 +27,7 @@ class ProductDetailsActivity : AppCompatActivity() {
 
         binding = ActivityProductDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
         val id = intent.getStringExtra("id").toString()
 
@@ -72,5 +74,6 @@ class ProductDetailsActivity : AppCompatActivity() {
         binding.tvCountSold.text = "${data?.stokProduk} Tersedia"
         binding.tvProductDesc.text = data?.detailProduk
         binding.tvCost.text = "Rp. ${data?.hargaProduk}"
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
     }
 }

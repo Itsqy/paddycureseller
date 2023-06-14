@@ -8,7 +8,6 @@ import android.text.Html
 import android.text.TextWatcher
 import android.util.Log
 import android.util.Patterns
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,11 +15,12 @@ import android.widget.Toast
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import com.darkcoder.paddycure.data.network.ApiConfig
 import com.darkcoder.paddycure.utils.Utils
-import com.darkcoder.paddycure.utils.ViewModelFactory
+import com.darkcoder.paddycureseller.utils.ViewModelFactory
 import com.darkcoder.paddycureseller.MainActivity
 import com.darkcoder.paddycureseller.R
 import com.darkcoder.paddycureseller.data.viewmodel.LoginViewModel
@@ -59,7 +59,7 @@ class LoginFragment : Fragment() {
                 if (isLoading) {
                     loadingLottie?.visibility = View.VISIBLE
                     bgLoading?.visibility = View.VISIBLE
-                } else{
+                } else {
                     loadingLottie?.visibility = View.INVISIBLE
                     bgLoading?.visibility = View.INVISIBLE
                 }
@@ -122,6 +122,7 @@ class LoginFragment : Fragment() {
                     Toast.makeText(requireContext(), "$msg successfully login", Toast.LENGTH_SHORT)
                         .show()
                     startActivity(Intent(requireActivity(), MainActivity::class.java))
+                    requireActivity().finish()
                 }
             } else {
                 loginViewModel.showMessage.observe(requireActivity()) { msg ->

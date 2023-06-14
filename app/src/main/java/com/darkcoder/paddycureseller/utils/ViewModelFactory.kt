@@ -1,4 +1,4 @@
-package com.darkcoder.paddycure.utils
+package com.darkcoder.paddycureseller.utils
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -7,7 +7,6 @@ import com.darkcoder.paddycureseller.data.viewmodel.AddProductViewModel
 import com.darkcoder.paddycureseller.data.viewmodel.EditProductViewModel
 import com.darkcoder.paddycureseller.data.viewmodel.HomeViewModel
 import com.darkcoder.paddycureseller.data.viewmodel.LoginViewModel
-import com.darkcoder.paddycureseller.utils.UserPreferences
 
 //import com.darkcoder.paddycure.data.viewmodel.LoginViewModel
 //import com.darkcoder.paddycure.data.viewmodel.SplashViewModel

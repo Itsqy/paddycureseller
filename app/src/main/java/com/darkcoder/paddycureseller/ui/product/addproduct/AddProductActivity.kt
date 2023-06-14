@@ -7,6 +7,7 @@ import android.graphics.BitmapFactory
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatDelegate
 import android.provider.MediaStore
 import android.widget.EditText
 import android.widget.Toast
@@ -47,6 +48,8 @@ class AddProductActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
         binding = ActivityAddProductBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -183,5 +186,6 @@ class AddProductActivity : AppCompatActivity() {
     companion object {
         private val REQUIRED_PERMISSIONS = arrayOf(android.Manifest.permission.CAMERA)
         private const val REQUEST_CODE_PERMISSIONS = 10
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
     }
 }
