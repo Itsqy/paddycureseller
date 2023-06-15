@@ -5,14 +5,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.product.addproduct.AddProductActivity">
+    tools:context=".ui.product.editproduct.EditProductActivity">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/container_img_preview"
+            android:id="@+id/container_img_preview_edit"
             android:layout_width="0dp"
             android:layout_height="200dp"
             android:layout_marginStart="20dp"
@@ -26,18 +26,20 @@
             app:layout_constraintTop_toBottomOf="@+id/textView10">
 
             <ImageView
-                android:id="@+id/iv_preview"
+                android:id="@+id/iv_preview_edit"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="16dp"
+                android:scaleType="centerCrop"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_camera_white" />
+                app:srcCompat="@drawable/bg_grey200" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -53,21 +55,21 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/tv_form_product"
+                android:id="@+id/tv_edit_product"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_semibold"
                 android:gravity="center_horizontal"
-                android:text="@string/add_product"
+                android:text="@string/edit_product"
                 android:textColor="#464646"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/iv_back_form"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/iv_back_form"
+                android:id="@+id/iv_back_edit"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -78,11 +80,11 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
-            android:id="@+id/tv_select_photo_form"
+            android:id="@+id/tv_select_photo_edit"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:fontFamily="@font/poppins_medium"
             android:text="@string/select_photo_from"
             android:textColor="@color/secColor"
@@ -91,19 +93,19 @@
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/btn_gallery"
+            android:id="@+id/btn_gallery_edit"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/bg_grey"
             android:paddingHorizontal="10dp"
             android:paddingVertical="7dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_select_photo_form">
+            app:layout_constraintStart_toEndOf="@+id/btn_camera_edit"
+            app:layout_constraintTop_toBottomOf="@+id/tv_select_photo_edit">
 
             <ImageView
-                android:id="@+id/iv_gallery"
+                android:id="@+id/iv_gallery_edit"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -112,7 +114,7 @@
                 app:srcCompat="@drawable/ic_gallery" />
 
             <TextView
-                android:id="@+id/tv_gallery"
+                android:id="@+id/tv_gallery_edit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -123,21 +125,21 @@
                 android:textSize="13dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/iv_gallery"
+                app:layout_constraintStart_toEndOf="@+id/iv_gallery_edit"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/btn_camera"
+            android:id="@+id/btn_camera_edit"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/bg_grey"
             android:paddingHorizontal="10dp"
             android:paddingVertical="7dp"
-            app:layout_constraintStart_toEndOf="@+id/btn_gallery"
-            app:layout_constraintTop_toBottomOf="@+id/tv_select_photo_form">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_select_photo_edit">
 
             <ImageView
                 android:id="@+id/iv_camera"
@@ -169,17 +171,17 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="30dp"
             android:fontFamily="@font/poppins_medium"
             android:text="@string/photos_preview"
             android:textColor="@color/secColor"
             android:textSize="10sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_gallery" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_camera_edit" />
 
 
         <TextView
-            android:id="@+id/tv_product_name"
+            android:id="@+id/tv_product_name_edit"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -191,10 +193,10 @@
             android:textSize="10sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/container_img_preview" />
+            app:layout_constraintTop_toBottomOf="@+id/container_img_preview_edit" />
 
         <EditText
-            android:id="@+id/ed_product_name"
+            android:id="@+id/ed_product_name_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -203,12 +205,12 @@
             android:background="@drawable/ed_custom"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_product_name"
+            app:layout_constraintTop_toBottomOf="@+id/tv_product_name_edit"
             android:paddingHorizontal="20dp"
             android:paddingVertical="10dp"/>
 
         <TextView
-            android:id="@+id/tv_cost"
+            android:id="@+id/tv_cost_edit"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -221,10 +223,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ed_product_name" />
+            app:layout_constraintTop_toBottomOf="@+id/ed_product_name_edit" />
 
         <EditText
-            android:id="@+id/ed_product_cost"
+            android:id="@+id/ed_product_cost_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -233,12 +235,12 @@
             android:background="@drawable/ed_custom"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_cost"
+            app:layout_constraintTop_toBottomOf="@+id/tv_cost_edit"
             android:paddingHorizontal="20dp"
             android:paddingVertical="10dp"/>
 
         <TextView
-            android:id="@+id/tv_desc"
+            android:id="@+id/tv_desc_edit"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -251,10 +253,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ed_product_cost" />
+            app:layout_constraintTop_toBottomOf="@+id/ed_product_cost_edit" />
 
         <EditText
-            android:id="@+id/ed_product_desc"
+            android:id="@+id/ed_product_desc_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -263,12 +265,12 @@
             android:background="@drawable/ed_custom"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_desc"
+            app:layout_constraintTop_toBottomOf="@+id/tv_desc_edit"
             android:paddingHorizontal="20dp"
             android:paddingVertical="10dp"/>
 
         <TextView
-            android:id="@+id/tv_stok"
+            android:id="@+id/tv_stok_edit"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -281,10 +283,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ed_product_desc" />
+            app:layout_constraintTop_toBottomOf="@+id/ed_product_desc_edit" />
 
         <EditText
-            android:id="@+id/ed_product_stock"
+            android:id="@+id/ed_product_stock_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -294,12 +296,12 @@
             android:background="@drawable/ed_custom"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_stok"
+            app:layout_constraintTop_toBottomOf="@+id/tv_stok_edit"
             android:paddingHorizontal="20dp"
             android:paddingVertical="10dp"/>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_add_product"
+            android:id="@+id/btn_save_product"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -308,13 +310,26 @@
             android:layout_marginBottom="16dp"
             android:background="@drawable/bg_button"
             android:fontFamily="@font/poppins_medium"
-            android:text="Simpan"
+            android:text="Save Product"
             android:textAllCaps="false"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ed_product_stock" />
+            app:layout_constraintTop_toBottomOf="@+id/ed_product_stock_edit" />
 
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.383"
+            tools:visibility="visible" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

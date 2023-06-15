@@ -18,6 +18,7 @@ import androidx.datastore.preferences.preferencesDataStore
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
+import com.darkcoder.paddycure.data.network.ApiConfig
 import com.darkcoder.paddycure.utils.Utils
 import com.darkcoder.paddycureseller.utils.ViewModelFactory
 import com.darkcoder.paddycureseller.MainActivity
@@ -34,7 +35,7 @@ class LoginFragment : Fragment() {
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding
     private val loginViewModel: LoginViewModel by viewModels {
-        ViewModelFactory(UserPreferences.getInstance(requireContext().dataStore))
+        ViewModelFactory(UserPreferences.getInstance(requireContext().dataStore), ApiConfig)
     }
 
     override fun onCreateView(

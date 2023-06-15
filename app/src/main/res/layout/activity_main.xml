@@ -19,7 +19,9 @@
         app:navGraph="@navigation/mobile_navigation" />
 
     <ImageView
+
         android:id="@+id/btn_add_product"
+
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_marginBottom="38dp"

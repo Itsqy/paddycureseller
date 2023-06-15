@@ -1,6 +1,9 @@
 package com.darkcoder.paddycureseller
 
 import android.content.Intent
+
+import androidx.appcompat.app.AppCompatActivity
+
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -23,6 +26,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         supportActionBar?.hide()
         setButtomNavWithConfigChanges()
+
+     
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
         binding.btnAddProduct.setOnClickListener {

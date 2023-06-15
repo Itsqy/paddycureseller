@@ -10,8 +10,8 @@
     android:layout_marginTop="4dp"
     android:layout_marginEnd="8dp"
     android:layout_marginBottom="4dp"
-    card_view:cardCornerRadius="8dp"
-    android:outlineSpotShadowColor="@color/white">
+    android:outlineSpotShadowColor="@color/white"
+    card_view:cardCornerRadius="8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
@@ -20,7 +20,7 @@
 
         <ImageView
             android:id="@+id/img_item_photo"
-            android:layout_width="0dp"
+            android:layout_width="150dp"
             android:layout_height="80dp"
             android:scaleType="centerCrop"
             card_view:layout_constraintEnd_toEndOf="parent"
@@ -30,7 +30,7 @@
 
         <TextView
             android:id="@+id/tv_title"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/poppins_semibold"
