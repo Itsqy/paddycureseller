@@ -1,8 +1,11 @@
 package com.darkcoder.paddycureseller
 
 import android.content.Intent
+
 import androidx.appcompat.app.AppCompatActivity
+
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -24,10 +27,12 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.hide()
         setButtomNavWithConfigChanges()
 
-        binding.btnAddPproduct.setOnClickListener {
+     
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+
+        binding.btnAddProduct.setOnClickListener {
             startActivity(Intent(this, AddProductActivity::class.java))
         }
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
     }
 
     private fun setButtomNavWithConfigChanges() {
