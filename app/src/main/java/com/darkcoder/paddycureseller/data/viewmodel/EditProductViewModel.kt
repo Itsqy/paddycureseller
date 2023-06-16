@@ -6,7 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
-import com.darkcoder.paddycure.data.model.local.UserModel
+import com.darkcoder.paddycureseller.data.model.local.UserModel
 import com.darkcoder.paddycure.data.network.ApiConfig
 import com.darkcoder.paddycureseller.data.model.remote.DataItem
 import com.darkcoder.paddycureseller.data.model.remote.EditProductResponse

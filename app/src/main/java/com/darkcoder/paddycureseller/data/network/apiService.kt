@@ -27,9 +27,10 @@ interface ApiService {
     @Multipart
     @POST("/users/register")
     fun register(
-        @Part("nama") nama: String,
-        @Part("username") username: String,
-        @Part("password") password: String,
+        @Part("nama") nama: RequestBody,
+        @Part("role") role: RequestBody,
+        @Part("username") username: RequestBody,
+        @Part("password") password: RequestBody,
     ): Call<RegisterResponse>
 
 

@@ -6,6 +6,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.darkcoder.paddycure.data.network.ApiConfig
 import com.darkcoder.paddycureseller.data.model.remote.RegisterResponse
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -27,7 +29,13 @@ class RegisterViewModel() : ViewModel() {
 
         _isLoading.value = true
 
-        ApiConfig.getApiService().register(name, userame, passWord)
+        val nameRequestBody = RequestBody.create("text/plain".toMediaTypeOrNull(), name)
+        val roleRequestBody = RequestBody.create("text/plain".toMediaTypeOrNull(), "seller")
+        val usernameRequestBody = RequestBody.create("text/plain".toMediaTypeOrNull(), userame)
+        val passWordRequestBody = RequestBody.create("text/plain".toMediaTypeOrNull(), passWord)
+
+        ApiConfig.getApiService()
+            .register(nameRequestBody, roleRequestBody, usernameRequestBody, passWordRequestBody)
             .enqueue(object : Callback<RegisterResponse> {
                 override fun onResponse(
                     call: Call<RegisterResponse>,

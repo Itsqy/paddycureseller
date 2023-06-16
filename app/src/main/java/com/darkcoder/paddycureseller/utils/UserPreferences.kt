@@ -5,7 +5,7 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
-import com.darkcoder.paddycure.data.model.local.UserModel
+import com.darkcoder.paddycureseller.data.model.local.UserModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
@@ -19,6 +19,7 @@ class UserPreferences(private val dataStore: DataStore<Preferences>) {
                 user[stringPreferencesKey("id")] ?: "",
                 user[stringPreferencesKey("token")] ?: "",
                 user[booleanPreferencesKey("login")] ?: false,
+                user[stringPreferencesKey("role")] ?: "",
             )
 
         }
@@ -31,6 +32,7 @@ class UserPreferences(private val dataStore: DataStore<Preferences>) {
             user[stringPreferencesKey("id")] = ""
             user[stringPreferencesKey("token")] = ""
             user[booleanPreferencesKey("login")] = false
+            user[stringPreferencesKey("role")] = ""
 
         }
     }
@@ -41,6 +43,7 @@ class UserPreferences(private val dataStore: DataStore<Preferences>) {
             user[stringPreferencesKey("id")] = data.userId
             user[stringPreferencesKey("token")] = data.userToken
             user[booleanPreferencesKey("login")] = data.isLogin
+            user[stringPreferencesKey("role")] = data.role
 
         }
     }

@@ -6,8 +6,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
-import com.darkcoder.paddycure.data.model.local.UserModel
 import com.darkcoder.paddycure.data.network.ApiConfig
+import com.darkcoder.paddycureseller.data.model.local.UserModel
 import com.darkcoder.paddycureseller.data.model.remote.LoginResponse
 import com.darkcoder.paddycureseller.utils.UserPreferences
 import kotlinx.coroutines.launch
@@ -18,7 +18,8 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class LoginViewModel(val sharedPref: UserPreferences, private val apiConfig: ApiConfig) : ViewModel() {
+class LoginViewModel(val sharedPref: UserPreferences, private val apiConfig: ApiConfig) :
+    ViewModel() {
 
     private val _message = MutableLiveData<String>()
     val showMessage: LiveData<String> = _message
@@ -58,7 +59,8 @@ class LoginViewModel(val sharedPref: UserPreferences, private val apiConfig: Api
                                 user?.username.toString(),
                                 user?.id.toString(),
                                 it.token,
-                                true
+                                true, user?.role.toString()
+
                             )
                         }
 
