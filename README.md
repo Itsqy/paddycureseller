@@ -45,7 +45,18 @@ To clone and use this project, follow these steps:
 2. Navigate to the directory where you want to clone the project.
 
 3. Run the following command to clone the project:
-
-   ```shell
    git clone https://github.com/your-username/your-repo.git
+   
+   
+## Dependencies
+
+This project utilizes the following third-party libraries:
+
+- Glide: A fast and efficient image loading library.
+- Retrofit: A type-safe HTTP client for Android and Java.
+
+## License
+
+This project is licensed under the [MIT License](link-to-license-file).
+
 
