@@ -1,5 +1,3 @@
-# paddycureseller
-
 # PaddyCureSeller App
 
 ![PaddyCure Logo](https://drive.google.com/uc?id=1JqG6Ox5Kw45GkjV9sZzg0VFcp_GYGbTo)
@@ -18,8 +16,9 @@ PaddyCure is a mobile app designed to simplify the process of caring for paddy c
 
 - Login: Authenticate users with their credentials.
 - Register: Create a new account for accessing the app.
-- Home Screen: View essential information and navigate to different sections.
-- Add Product: Add new products to the inventory.
+- Home Screen: View essential information and navigate to different sections and show information about product ordered , and your product.
+- Add Product: Add new Pesticides to the inventory.
+- edit Product: edit  Pesticides to the inventory .
 - Detail Screen: View detailed information about a product.
 
 ## Installation
@@ -45,7 +44,7 @@ To clone and use this project, follow these steps:
 2. Navigate to the directory where you want to clone the project.
 
 3. Run the following command to clone the project:
-   git clone https://github.com/your-username/your-repo.git
+   git clone [PaddyCureSeller](https://github.com/Itsqy/paddycureseller)
    
    
 ## Dependencies
