@@ -52,11 +52,9 @@ To clone and use this project, follow these steps:
 
 This project utilizes the following third-party libraries:
 
-- Glide: A fast and efficient image loading library.
-- Retrofit: A type-safe HTTP client for Android and Java.
+1. [Retrofit](https://square.github.io/retrofit/): A type-safe HTTP client for Android and Java.
+2. [Glide](https://github.com/bumptech/glide): A fast and efficient image loading library.
+3. [OkHttp](https://square.github.io/okhttp/): An HTTP client for making network requests.
 
-## License
-
-This project is licensed under the [MIT License](link-to-license-file).
 
 
