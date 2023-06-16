@@ -25,7 +25,7 @@ PaddyCure is a mobile app designed to simplify the process of caring for paddy c
 
 To install the app, follow these steps:
 
-1. Download the APK file from [Google Drive](link-to-app-file).
+1. Download the APK file from [apk seller](https://drive.google.com/file/d/1SUrCKmJX48S2M2A7WGzC8mYMm-slQxFj/view).
 2. Transfer the APK file to your Android device.
 3. On your Android device, navigate to the location where you saved the APK file and tap on it.
 4. Follow the on-screen instructions to complete the installation process.
