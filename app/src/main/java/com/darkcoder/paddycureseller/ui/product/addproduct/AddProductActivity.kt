@@ -5,19 +5,18 @@ import android.content.Intent.ACTION_GET_CONTENT
 import android.content.pm.PackageManager
 import android.graphics.BitmapFactory
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatDelegate
 import android.provider.MediaStore
 import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import com.darkcoder.paddycure.data.network.ApiConfig
-import com.darkcoder.paddycure.utils.ViewModelFactory
 import com.darkcoder.paddycure.utils.createCustomTempFile
 import com.darkcoder.paddycure.utils.reduceFileImage
 import com.darkcoder.paddycure.utils.uriToFile
@@ -26,6 +25,7 @@ import com.darkcoder.paddycureseller.data.viewmodel.AddProductViewModel
 import com.darkcoder.paddycureseller.databinding.ActivityAddProductBinding
 import com.darkcoder.paddycureseller.ui.login.dataStore
 import com.darkcoder.paddycureseller.utils.UserPreferences
+import com.darkcoder.paddycureseller.utils.ViewModelFactory
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
@@ -186,6 +186,6 @@ class AddProductActivity : AppCompatActivity() {
     companion object {
         private val REQUIRED_PERMISSIONS = arrayOf(android.Manifest.permission.CAMERA)
         private const val REQUEST_CODE_PERMISSIONS = 10
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+
     }
 }

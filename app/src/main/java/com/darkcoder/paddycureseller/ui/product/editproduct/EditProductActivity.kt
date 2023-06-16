@@ -17,7 +17,6 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import com.bumptech.glide.Glide
 import com.darkcoder.paddycure.data.network.ApiConfig
-import com.darkcoder.paddycure.utils.ViewModelFactory
 import com.darkcoder.paddycure.utils.createCustomTempFile
 import com.darkcoder.paddycure.utils.reduceFileImage
 import com.darkcoder.paddycure.utils.uriToFile
@@ -27,6 +26,7 @@ import com.darkcoder.paddycureseller.data.viewmodel.EditProductViewModel
 import com.darkcoder.paddycureseller.databinding.ActivityEditProductBinding
 import com.darkcoder.paddycureseller.ui.login.dataStore
 import com.darkcoder.paddycureseller.utils.UserPreferences
+import com.darkcoder.paddycureseller.utils.ViewModelFactory
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody

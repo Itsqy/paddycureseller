@@ -1,21 +1,20 @@
 package com.darkcoder.paddycureseller.ui.home
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.viewModels
+import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.darkcoder.paddycure.data.network.ApiConfig
-import com.darkcoder.paddycure.utils.ViewModelFactory
-import com.darkcoder.paddycureseller.R
 import com.darkcoder.paddycureseller.data.viewmodel.HomeViewModel
 import com.darkcoder.paddycureseller.databinding.FragmentHomeBinding
 import com.darkcoder.paddycureseller.ui.login.dataStore
 import com.darkcoder.paddycureseller.utils.UserPreferences
+import com.darkcoder.paddycureseller.utils.ViewModelFactory
 
 class HomeFragment : Fragment() {
 
@@ -28,7 +27,7 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        return  binding?.root
+        return binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -47,11 +46,17 @@ class HomeFragment : Fragment() {
 
 //        val homeViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(
 //            HomeViewModel::class.java
-//        )
+////        )
 
-        homeViewModel.listProduct.observe(viewLifecycleOwner) {
-            val adapter = ListProductAdapter(it)
-            binding.rvProduct.adapter = adapter
+        homeViewModel.listProduct.observe(requireActivity()) {
+
+            if (it != null){
+                Log.d("TAG", "onViewCreated: $it")
+                val adapter = ListProductAdapter(it)
+                binding.rvProduct.adapter = adapter
+            }else{
+                Toast.makeText(requireContext(), "tidak ada ddata", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 

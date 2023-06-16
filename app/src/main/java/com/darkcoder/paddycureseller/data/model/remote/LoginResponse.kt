@@ -19,6 +19,12 @@ data class LoginResponse(
 
 data class User(
 
+    @field:SerializedName("role")
+    val role: String,
+
+    @field:SerializedName("nama")
+    val nama: String,
+
     @field:SerializedName("id")
     val id: String,
 

@@ -2,8 +2,8 @@
     <string name="app_name">paddycureseller</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="to_register"><u>Login</u></string>
-    <string name="to_login"><u>Register</u></string>
+    <string name="to_register"><u>Register</u></string>
+    <string name="to_login"><u>Login</u></string>
     <string name="title_activity_home">HomeActivity</string>
     <string name="welcome">Welcome</string>
     <string name="full_name">Full Name</string>
